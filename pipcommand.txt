@@ -1,0 +1,2 @@
+pip download ppackage -d"directory_path"
+pip install ppackage -f ./ --no-index --no-deps
