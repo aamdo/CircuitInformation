@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}   
+
+        {{lf}}
+        
+        <input type="submit" value="enter">
+    </form>    
+
+
+
+{% endblock content %}
+     

@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import LogIn
+from .forms import LoginForm
+
 
 # Create your views here.
 def home(request):
@@ -7,7 +9,14 @@ def home(request):
     return render(request, 'accounts/home.html',context)
 
 def about(request):
-    context = {}
-    return HttpResponse('<h2>' + 'نظام معلومات الدوائر بمنطقة القصيم' + '</h2>')
+    dataform = LoginForm(request.POST)
+    if request.method == 'POST':
+        if dataform.is_valid:
+                dataform.save()
+ 
+
+    
+    context = {'lf':LoginForm}
+    return render(request,'accounts/about.html',context)
  
 
